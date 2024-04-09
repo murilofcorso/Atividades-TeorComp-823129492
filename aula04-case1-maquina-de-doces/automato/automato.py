@@ -1,4 +1,5 @@
 import time
+import os
 
 alfabeto = {
     0: 0, 
@@ -32,21 +33,22 @@ doces = [
 ]
 
 
-
-fita = [2, 5, 0, 3]
+exemplos_cadeias = [
+    [2, 2, 2, 0, 1],
+    [5, 5, 3],
+    [5, 2, 1, 3],
+    [5, 1, 0, 2], # ERRO
+    [1, 1, 1, 1, 1, 1, 0, 1]
+]
 estado_atual = estado_inicial
 valor_adicionado = 0
-for entrada in fita:
+print(f"Estado inicial: {estado_atual}")
+for entrada in exemplos_cadeias[0]:
+    time.sleep(5)
+    os.system("cls")
     if estado_atual.isnumeric() or valor_adicionado < 6:
         if entrada: print(f"Adicionando R${entrada:.2f}")
         valor_adicionado += entrada
-    # else:
-    #     if estado_atual == "p1":
-    #         print(f"Visualizar doces:\n{doces[0]}")
-    #     elif estado_atual == "p2":
-    #         print(f"Visualizar doces:\n{doces[0]}\n{doces[1]}")
-    #     elif estado_atual == "p3":
-    #         print(f"Visualizar doces:\n{doces[0]}\n{doces[1]}\n{doces[2]}")
     elif estado_atual[0] == "p":
         print(f"Escolhendo entre os doces: {list(range(1, int(estado_atual[-1])+1))}")
 
@@ -54,7 +56,7 @@ for entrada in fita:
     if estado_atual == "None":
         print("String inválida!!")
         break
-    print(f"ENTRADA: {entrada}")
+    print(f"ENTRADA: {entrada}, ESTADO: {estado_atual}")
 
     if estado_atual == "d1":
         print(f"Bom Bom liberado, troco: R${valor_adicionado - 6:.2f}")
@@ -62,5 +64,7 @@ for entrada in fita:
         print(f"KitKat liberado, troco: R${valor_adicionado - 7:.2f}")
     elif estado_atual == "d3":
         print(f"Snickers liberado, troco: R${valor_adicionado - 8:.2f}")
+if (estado_atual[0] != "d") & (estado_atual != "None"):
+    print("String inválida")
     
 

@@ -11,13 +11,11 @@ class MaquinaDeDoces:
             "snickers" : (3, 8)
         }
         self.valores_aceitos = (1, 2, 5)
-        self.estado = 0
         self.entrada = None
 
 
     def _exibir_menu_dinheiro(self):
         os.system("cls")
-        print(f"ESTADO DO AUTOMATO: {self.estado}")
         if self.usuario.saldo >= 6:
             valor_inserido = int(input(f"""Quanto de dinheiro você vai querer adicionar\n R$1,00 \n R$2,00 \n R$5,00 \n O seu saldo é de R${self.usuario.saldo},00\n0 - Comprar Doce\n""" ))
             podeComprar = True
@@ -26,7 +24,6 @@ class MaquinaDeDoces:
             valor_inserido = int(input(f"""Quanto de dinheiro você vai querer adicionar\n R$1,00 \n R$2,00 \n R$5,00 \n O seu saldo é de R${self.usuario.saldo},00\n """ ))
         if valor_inserido in self.valores_aceitos:
             self.usuario.saldo += valor_inserido
-            self.estado = self.usuario.saldo
         elif valor_inserido != 0:
             print("\nO VALOR INSERIDO NÃO É ACEITO\n")
             time.sleep(1)
@@ -44,8 +41,6 @@ class MaquinaDeDoces:
             if self.usuario.saldo >= self.doces[doce][1]:
                 print(f"{self.doces[doce][0]} -- {doce}: R${self.doces[doce][1]:.2f}")
                 doces_compraveis.append(self.doces[doce][0])
-        self.estado = f"p{len(doces_compraveis)}"
-        print(f"ESTADO DO AUTOMATO: {self.estado}")
         if self.usuario.saldo < 8:
             doce_escolhido = int(input(f"\nO seu saldo é de R${self.usuario.saldo}\nEscolha seu doce sabiamente(0 - Voltar): "))
             podeVoltar = True
