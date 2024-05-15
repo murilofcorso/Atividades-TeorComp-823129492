@@ -3,10 +3,10 @@ from tkinter import messagebox
 import subprocess
 
 def abrir_projeto_maquina_de_doces():
-    subprocess.Popen(['python', 'maquina-de-doces/main.py'])
+    subprocess.Popen(['python', 'case2-elevador/maquina-de-doces/main.py'])
 
 def abrir_projeto_elevador():
-    subprocess.Popen(['python', 'elevador/tela.py'])
+    subprocess.Popen(['python', 'case2-elevador/elevador/tela.py'])
 
 def criar_interface():
     root = tk.Tk()
