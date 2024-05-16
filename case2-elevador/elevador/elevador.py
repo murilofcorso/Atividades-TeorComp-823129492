@@ -90,7 +90,7 @@ class Elevador(pygame.sprite.Sprite):
         self.tick_atual = pygame.time.get_ticks()
         # cooldown porta aberta
         if self.abriu:
-            if self.tick_atual - self.abertura_tick > 1200:
+            if self.tick_atual - self.abertura_tick > 2000:
                 self.abriu = False
                 self.status = "porta_fechando"
         # cooldown porta fechada
@@ -108,7 +108,7 @@ class Elevador(pygame.sprite.Sprite):
     def adicionar_chamado_interno(self, andar):
         if andar not in self.chamados_internos:
             self.chamados_internos.append(andar)
-        self.chamados_internos.sort(reverse=True)
+        self.chamados_internos.sort()
 
     
     def retornar_proximo_chamado(self):

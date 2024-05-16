@@ -10,15 +10,16 @@ def abrir_projeto_elevador():
 
 def criar_interface():
     root = tk.Tk()
+    root.geometry("200x200")
     root.title("Escolha o projeto")
 
     # Função para abrir o projeto da máquina de doces ao clicar no botão
     botao_maquina_de_doces = tk.Button(root, text="Máquina de Doces", command=abrir_projeto_maquina_de_doces)
-    botao_maquina_de_doces.pack()
+    botao_maquina_de_doces.pack(pady=25)
 
     # Função para abrir o projeto do elevador ao clicar no botão
     botao_elevador = tk.Button(root, text="Elevador", command=abrir_projeto_elevador)
-    botao_elevador.pack()
+    botao_elevador.pack(pady=25)
 
     root.mainloop()
 

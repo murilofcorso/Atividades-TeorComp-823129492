@@ -28,7 +28,7 @@ c1 = Chamador(tela, e, 1)
 c2 = Chamador(tela, e, 2)
 c3 = Chamador(tela, e, 3)
 
-# p = Painel(tela, e, 4)
+p = Painel(tela, e, 4)
 
 
 # Loop principal do jogo
@@ -42,6 +42,12 @@ while True:
 
     # Atualize a tela
     tela.fill((80, 80, 255))
+
+
+    altura_predio = 550
+    largura_predio = 300
+    pygame.draw.rect(tela, (150, 150, 150), (largura//2 - largura_predio//2, altura - altura_predio, largura_predio, altura_predio))
+
     # Desenhe outros elementos na tela aqui
     tela.blit(e.image, e.rect.topleft)
     tela.blit(c0.image, c0.rect.topleft)
@@ -55,7 +61,7 @@ while True:
     c1.update(ultimo_evento)
     c2.update(ultimo_evento)
     c3.update(ultimo_evento)
-    # p.update(ultimo_evento)
+    p.update(ultimo_evento)
     e.update()
 
     # Atualize a tela
