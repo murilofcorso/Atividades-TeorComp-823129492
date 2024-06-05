@@ -14,11 +14,15 @@ with open(file_path, 'r', encoding='utf-8') as file:
 token_patterns = [
     ('WHITESPACE', r'\s+'),
     ('COMMENT', r'//.*?$'),
-    ('KEYWORD', r'\b(if|else|switch|do|for|while|return|int|float|String|public|static|void|main|class|System|out|println|import|from)\b'),
+    ('CONDITION', r'\b(if|else|else if|switch)\b'),
+    ('LOOP', r'\b(do|for|while)\b'),
+    ('PROTECTION', r'\b(private|public|protected)\b'),
+    ('CLASS', r'\b(String|Integer|Double|Math|ArrayList)\b'),
+    ('KEYWORD', r'\b(return|int|float|double|static|void|main|class|System|out|println|import|from)\b'),
     ('ID', r'\b[a-zA-Z_][a-zA-Z_0-9]*\b'),
     ('STRING', r'".*"'),
     ('NUMBER', r'\b\d+(\.\d+)?\b'),
-    ('OPERATOR', r'[+\-*/=<>!]'),
+    ('OPERATOR', r'[+\-*/=<>!%]'),
     ('DELIMITER', r'[\[\](){}:;,."\']'),
     ('UNKNOWN', r'.'),
 ]
