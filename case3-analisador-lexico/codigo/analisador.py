@@ -4,7 +4,7 @@ import time
 os.system("cls")
 
 # Caminho para o arquivo de código fonte
-file_path = "case3-analisador-lexico/source_code.txt"
+file_path = "case3-analisador-lexico/codigo/source_code.txt"
 
 # Ler o conteúdo do arquivo
 with open(file_path, 'r', encoding='utf-8') as file:

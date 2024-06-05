@@ -9,7 +9,7 @@ def abrir_projeto_elevador():
     subprocess.Popen(['python', 'case2-elevador/elevador/tela.py'])
 
 def abrir_projeto_analisador_lexico():
-    subprocess.Popen(['python', 'case3-analisador-lexico/analisador.py'])
+    subprocess.Popen(['python', 'case3-analisador-lexico/codigo/analisador.py'])
 
 def criar_interface():
     root = tk.Tk()
