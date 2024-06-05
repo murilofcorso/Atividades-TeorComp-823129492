@@ -1,0 +1,20 @@
+public class Main {
+    public static void main(String[] args) {
+        // Imprime uma mensagem de boas-vindas
+        System.out.println("Bem-vindo ao programa!");
+
+        // Loop para imprimir números de 1 a 10
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Número: " + i);
+        }
+        // Chamada de um método auxiliar
+        imprimirMensagem("Fim do programa.");
+    }
+
+    // Método auxiliar para imprimir uma mensagem
+    public static void imprimirMensagem(String mensagem) {
+        System.out.println(mensagem);
+    }
+}
+
+// Variáveis(ID's) declaradas a cima: Main, args, i, imprimirMensagem, mensagem

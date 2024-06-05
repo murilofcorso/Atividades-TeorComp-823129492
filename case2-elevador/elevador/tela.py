@@ -54,7 +54,7 @@ while True:
     tela.blit(c1.image, c1.rect.topleft)
     tela.blit(c2.image, c2.rect.topleft)
     tela.blit(c3.image, c3.rect.topleft)
-    # tela.blit(p.image, p.rect.topleft)
+    tela.blit(p.image, p.rect.topleft)
 
     # updates
     c0.update(ultimo_evento)
