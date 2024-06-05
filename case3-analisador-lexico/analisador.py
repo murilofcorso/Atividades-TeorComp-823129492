@@ -33,6 +33,7 @@ def lex_analyzer(code):
     # Criar variáveis iniciais
     line_num = 1
     line_start = 0
+    comments = 0
     tokens = []
     symbol_table = {}
     # Iterar pelos matches das expressões regulares
@@ -46,6 +47,8 @@ def lex_analyzer(code):
             print(f"\033[31mErro léxico: caractere inesperado '{value}' na linha {line_num}, coluna {column}\033[m")
         # Ignorar espaços em branco e comentários
         if kind == 'WHITESPACE' or kind == 'COMMENT':
+            if kind == 'COMMENT':
+                comments += 1
             pass
         # Adicionar valores às tabelas de tokens e de símbolos 
         else:
@@ -57,6 +60,7 @@ def lex_analyzer(code):
             line_start = match.end()
             line_num += 1
     # Retornar tabelas de tokens e de símbolos
+    print(f"\033[31m{comments} comentários ignorados\033[m")
     return tokens, symbol_table
 
 # Execução do analisador léxico
@@ -64,19 +68,12 @@ tokens, symbol_table = lex_analyzer(source_code)
 
 
 
-# ANALISADOR LÉXICO:
-    # 1. Lê o arquivo com o código que será analisado;
-    # 2. Através de expressões regulares, busca os símbolos e palavras que fazem parte dos padrões da linguagem;
-    # 3. Para cada símbolo/palavra do código, cria um token com: Tipo, valor, linha e coluna;
-        # Os tipos são: WHITESPACE, COMMENT, KEYWORD, ID, STRING, NUMBER, OPERATOR, DELIMITER;
-        # Caso o tipo seja "UNKNOWN" o analisador irá exibir um erro;
-        # Caso o tipo seja "ID", o valor é adicionado a uma tabela de símbolos. Símbolos podem tanto ser nomes de variáveis, quanto erros de digitação (diferenciação ocorre no analisador semântico);
-    # 4. Retorna uma lista com todos os tokens presentes no código escrito.
+
 
 # Cores
-VERMELHO = "\033[31m"
-VERDE = "\033[32m"
-AMARELO = "\033[33m"
+VERMELHO = "\033[1;31m"
+VERDE = "\033[1;32m"
+AMARELO = "\033[1;33m"
 BRANCO = "\033[m"
 
 # Exibição do código de entrada

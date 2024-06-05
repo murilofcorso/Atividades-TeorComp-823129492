@@ -1,3 +1,14 @@
+// ANALISADOR LÉXICO:
+    // 1. Lê o arquivo com o código que será analisado;
+    // 2. Através de expressões regulares, busca os símbolos e palavras que fazem parte dos padrões da linguagem;
+    // 3. Para cada símbolo/palavra do código, cria um token com: Tipo, valor, linha e coluna;
+        // Os tipos são: WHITESPACE, COMMENT, KEYWORD, ID, STRING, NUMBER, OPERATOR, DELIMITER, UNKNOWN;
+        // Caso o tipo seja "UNKNOWN" o analisador irá exibir um erro;
+        // Caso o tipo seja "ID", o valor é adicionado a uma tabela de símbolos/palavras;
+        // ID's são nomes de variáveis/funções declaradas.
+        // Erros de digitação podem ser considerados ID's
+    // 4. Retorna uma lista com todos os tokens presentes no código escrito.
+
 public class Main {
     public static void main(String[] args) {
         // Imprime uma mensagem de boas-vindas
@@ -9,6 +20,9 @@ public class Main {
         }
         // Chamada de um método auxiliar
         imprimirMensagem("Fim do programa.");
+
+        // Erro
+        int 2i = 2
     }
 
     // Método auxiliar para imprimir uma mensagem
@@ -16,5 +30,3 @@ public class Main {
         System.out.println(mensagem);
     }
 }
-
-// Variáveis(ID's) declaradas a cima: Main, args, i, imprimirMensagem, mensagem
